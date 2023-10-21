@@ -24,7 +24,7 @@ app.get("/health", (req, res) => {
     mongoose.connection.readyState === 1 ? "Connected" : "Disconnected";
 
   res.status(200).json({
-    server: "Running",
+    server: "Running Successfully",
     database: dbStatus,
   });
 });
