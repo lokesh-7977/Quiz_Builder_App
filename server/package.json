@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start" : "nodemon server.js"
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -14,7 +14,7 @@
   "author": "Lokesh Medharametla",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Lokesh-Choudhary/Quiz_Builder_App/issues"
+    "url": "https://github.com/Lokesh-Choudhary/Quiz_Builder_App"
   },
   "dependencies": {
     "bcrypt": "^5.1.1",
