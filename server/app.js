@@ -5,14 +5,19 @@ const dotenv = require("dotenv").config();
 const mongoose = require('mongoose');
 
 const authRoute = require("./src/routes/userRoutes");
+const quizRoutes = require("./src/routes/quizRoutes")
+const quizResults = require("./src/routes/quizResultsRoutes")
 
 const app = express();
+// ----------------------------------------------------------------------------
 
-
+// Express Body-Parser MiddleWares 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 
+
+// ------------------------------------------------------------------------------
 
 //Home route
 app.get('/', (req, res) => {
@@ -30,9 +35,22 @@ app.get("/health", (req, res) => {
   });
 });
 
-// Authentication Route - Register & Login ---- /api/auth/register && /api/auth/login
+
+// ----------------------------------------------------------------------------------------
+// ROUTES
+
+
+// Authentication Routes   - Register & Login ---- /api/auth/register && /api/auth/login
 app.use("/api/auth", authRoute);
 
+
+// Quiz Routes -   Create,Read,Update,Delete ---- /quiz/create && /quiz/list && /quiz/:quizId
+app.use("/quiz",quizRoutes)
+
+// Quiz Results Routes - results/:quizId && /results/:resultId && /results/user/:userId
+app.use("/results",quizResults)
+
+// ----------------------------------------------------------------------------------------------
 
 // Error handler middleware
 app.use((err, req, res, next) => {
